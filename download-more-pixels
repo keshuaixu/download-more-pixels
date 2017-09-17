@@ -1,0 +1,2 @@
+#!/bin/bash
+xrandr --output LVDS1 --scale 1.00x1.00 --panning ${1:-1366x768}
