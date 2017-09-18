@@ -3,8 +3,8 @@ usage() {
 	echo "Download more pixels for your shitty screen"
 	echo "examples:"
 	echo "  $0 1920 1080 # sets the resolution to 1920x1080"
-	echo "  $0 -h 1920 1080 # also makes things smaller to fits the horizontal edge to the screen"
-	echo "  $0 -v 1920 1080 # also makes things smaller to fits the vertical edge to the screen"
+	echo "  $0 -h 1920 1080 # makes things smaller to fit the horizontal edge to the screen"
+	echo "  $0 -v 1920 1080 # makes things smaller to fit the vertical edge to the screen"
 	echo "  $0 # resets the resolution to default"
 }
 native_x=1366
