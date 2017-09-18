@@ -1,2 +1,23 @@
 #!/bin/bash
-xrandr --output LVDS1 --scale 1.00x1.00 --panning ${1:-1366x768}
+usage() {
+	echo "Download more pixels for your shitty screen"
+	echo "examples:"
+	echo "  $0 1920 1080 # sets the resolution to 1920x1080"
+	echo "  $0 -h 1920 1080 # also makes things smaller to fits the horizontal edge to the screen"
+	echo "  $0 -v 1920 1080 # also makes things smaller to fits the vertical edge to the screen"
+
+	echo "  $0 # resets the resolution to default"
+}
+native_x=1366
+native_y=768
+pixel_scale=1.00
+while getopts 'hv' flag; do
+  case "${flag}" in
+    h) shift; pixel_scale=$(echo "scale=6; ${1:-$native_x}/$native_x" | bc);;
+    v) shift; pixel_scale=$(echo "scale=6; ${2:-$native_y}/$native_y" | bc);;
+    *) error "Unexpected option ${flag}"; usage;;
+  esac
+done
+echo $pixel_scale
+xrandr --output LVDS1 --scale $pixel_scale"x"$pixel_scale --panning ${1:-$native_x}"x"${2:-$native_y}
+
