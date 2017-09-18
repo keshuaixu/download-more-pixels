@@ -18,6 +18,5 @@ while getopts 'hv' flag; do
     *) error "Unexpected option ${flag}"; usage;;
   esac
 done
-echo $pixel_scale
 xrandr --output LVDS1 --scale $pixel_scale"x"$pixel_scale --panning ${1:-$native_x}"x"${2:-$native_y}
 
