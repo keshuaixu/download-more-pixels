@@ -10,7 +10,7 @@ Edit the `native_x` and `native_y` to match your screen's native resolution.
 
 ## Usage
 
-```
+```bash
 # sets the resolution to 1920x1080,
 download-more-pixels 1920 1080 
 
